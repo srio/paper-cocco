@@ -1,0 +1,473 @@
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times,authoryear]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn,authoryear]{elsarticle}
+%% \documentclass[final,3p,times,authoryear]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn,authoryear]{elsarticle}
+%% \documentclass[final,5p,times,authoryear]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn,authoryear]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+\usepackage{siunitx}
+\usepackage{color}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+
+\newcommand{\todo}[1]{{\color{red}[TODO: "#1'']}}
+\newcommand{\inblue}[1]{{\color{blue}#1}}
+\newcommand{\inred}[1]{{\color{red}#1}}
+\newcommand{\ingreen}[1]{{\color{green}#1}}
+\newcommand{\soutred}[1]{{\color{red}\sout{#1}}}
+
+\journal{Physics Reports}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \affiliation for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%            addressline={}, 
+%%            city={},
+%%            postcode={}, 
+%%            state={},
+%%            country={}}
+%% \fntext[label3]{}
+
+\title{Wavefront preserving X-ray optics for Synchrotron and Free Electron Laser photon beam transport systems and experiments.\\
+Or\\
+Wavefront preserving x-ray optical systems for synchrotron and free electron laser sources
+}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+\author[inst1]{D. Cocco}
+\author[inst1]{G. Cutler}
+\author[inst2]{M. Sanchez del Rio}
+\author[inst3]{L. Rebuffi}
+\author[inst4]{K. Yamauchi}
+
+\affiliation[inst1]{organization={LBNL, Berkeley},%Department and Organization
+            addressline={Address One}, 
+            city={City One},
+            postcode={00000}, 
+            state={State One},
+            country={Country One}}
+% Grant Cutler, Manuel Sanchez Del Rio, Howard Padmore, Kazuto Yamauchi
+% \author[inst2]{Author Two}
+% \author[inst1,inst2]{Author Three}
+
+\affiliation[inst2]{organization={ESRF},%Department and Organization
+            addressline={Address Two}, 
+            city={City Two},
+            postcode={22222}, 
+            state={State Two},
+            country={Country Two}}
+
+\affiliation[inst3]{organization={???},%Department and Organization
+            addressline={Address Two}, 
+            city={City Two},
+            postcode={22222}, 
+            state={State Two},
+            country={Country Two}}
+
+\affiliation[inst4]{organization={???},%Department and Organization
+            addressline={Address Two}, 
+            city={City Two},
+            postcode={22222}, 
+            state={State Two},
+            country={Country Two}}
+            
+\begin{abstract}
+In the last two decades, after the first light from the new Free Electron Lasers, either in the UV (FLASH and FERMI@Elettra) or X-ray (LCLS and SACLA), more and more new diffraction limited sources have been either constructed or planned. Third generation storage rings are upgraded to provide a more collimated, brighter and coherent light for the next generation experimental techniques. X-ray optics are the bridge between the light sources and the experimental stations. They may be the key enabler for the success of advanced experiments as well as the bottleneck preventing the proper exploitation of the source characteristics. 
+The beam degradation originated by any mirror defect (either from mirror polishing or from contamination) is amplified with a coherent source. To deliver beams focused to nanometric diffraction-limited spots, also including variable spot sizes in and out of focus, require the control of the surface of the optics at the 1 nm rms level, if not better. At LCLS, only very recently (2017) an almost perfectly uniform beam out of focus, has been obtained for the first time, in the hard X-rays, with a 1-m long mirror having sub 0.5 nm rms shape precision (after installation). Those mirrors were not available a decade ago or so. But, thanks to the pioneering work performed at the Osaka University, those optics are now commercially available with arbitrary tangential profile. This new generation of mirrors does not remove all the road blocks toward a perfect photon transport system. The lack of highly accurate blaze diffraction gratings, the need of sustaining the average source power or the single shot damage together with a non-perfect ability of simulating the transport of the photon beam in various conditions, may still be the detrimental factors in the quest for the perfect X-ray beam. 
+In this article, we will first present the current state of the art, after a brief historic excursus, of mirrors, gratings, crystal, lenses, diagnostics and simulations tools. The main problems yet to solve and a look head on what would be achievable in the next decade will give the reader an idea on the search to an almost ideal photon transport system and how the path toward experiments, not conceivable today, will unfold.
+
+\end{abstract}
+
+%%Graphical abstract
+\begin{graphicalabstract}
+\includegraphics{grabs}
+\end{graphicalabstract}
+
+%%Research highlights
+\begin{highlights}
+\item Research highlight 1
+\item Research highlight 2
+\end{highlights}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+keyword one \sep keyword two
+%% PACS codes here, in the form: \PACS code \sep code
+\PACS 0000 \sep 1111
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\MSC 0000 \sep 1111
+\end{keyword}
+
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
+
+
+
+
+\section{Introduction to X-ray optics and wave front preservation}
+
+\todo{DC $\rightarrow$ SdR: INTRO 1 page}
+
+\subsection{Strehl Ratio and the impact on the beamline performance \inred{DC $\rightarrow$ SdR 8 pages}}
+
+\subsection{FELs and low-emittance storage rings – why a new generation of optics are needed \inred{SdR $\rightarrow$ DC 3 pages}}
+
+Synchrotron radiation (SR) has witnessed enormous growth in recent decades, largely due to its applicability to multidisciplinary applied science. Synchrotrons are now among the most widespread and accessible scientific facilities. 
+The history of synchrotron radiation went through four ``generations". 
+The first generation pioneered the usage of synchrotron radiation for multidisciplinary applications using storage rings built for high energy physics. The second generation storage ring light sources are dedicated electron storage rings. The light was produced by the bending magnets. They witnessed the development of insertion devices (wigglers and undulators). Third generation sources are dedicated storage rings designed specifically for insertion devices sources. They optimized the brightness with values of emittance in the vertical direction close to  the diffraction limit (i.e. values of electron emittance of the order of the emittance of the synchroron emission). The fourth generation of synchrotron sources, anticipated at the end of last century (see e.g.~\cite{Winick1997}, is implemented by a twofold technical solution. On one side pushing to the usage of linear accelerators instead of circular storage to highly reduce emittance. Light is produces when electron pass through long undulators. These are the Free Electron Lasers (FELs). The emission is pulsed, coherent and extremely intense. On the other size, circular storage rings are pushed to the ``Diffraction-Limited Storage Rings". This is obtained by designing new lattices that reduce the horizontal emittance to values close to the diffraction limit, either in newly built synchtrotrons (e.g. MAX-IV) or upgrading existing ones (e.g. EBS at ESRF). The brilliance is highly increased and the beam becomes much more coherent. 
+
+The light beams produced by FELs and storage rings have differences in time structure, intensity and coherence. Although beams produced by the two type of facilities are pulsed, FELs beams are presented as very intense shots with a speckle structure inside a pulse. Light pulses in storage rings are flat and have frequency depending on filling mode, usually looking for a mostly filled mode to allow experiments an apparent continuous beam. Regarding intensity, the FEL beams are more intense because the emission of the individual electrons add coherently (as $N^2$, $N$ is the number of electrons) whereas in storage rings the radiation from electrons packed in much longer bunches do not interfere so the flux is proportional to $N$. Two types of coherence can be discussed, longitudinal coherence, that is related to the monochromaticity of the beam, and transversal coherence, manifested in the coherence length, an spatial extension from where two points will show correlated the electric fields. FELs beams are both longitudinally and transversally coherent \todo{right?}. Storage rings beams are pretty much incoherent longitudinally, but the use of monochromators in the beamlines highly improve this type of coherence. For many experiments, it is crucial to have high transversal coherence. It is quite good in vertical, but quite bad in horizontal for 3$^\text{rd}$ generation sources. This is the reason why many storage-ring-based X-ray synchrotron facilities are building or planning upgrades to increase brilliance and coherent flux by one to three orders of magnitude. The first upgrade of a large facility is the EBS (Extremely Brilliant Source) at the European Synchrotron Radiation Facility (ESRF). The new storage ring of 150~pm emittance has been commissioned in 2020 and significantly boost the coherence of the X-ray beams. 
+All applications exploiting beam coherence (e.g. X-ray photon correlation spectroscopy, coherent diffraction imaging, propagation-based phase-contrast imaging and ptychography) will strongly benefit from the use of FELs and 4$^\text{th}$ generation storage rings.
+
+
+In spite of their differences, instruments in FELs and 4$^\text{th}$ generation storage rings share a common need: the need of perfect optics. Optical components in X-ray beamlines are much more demanding than for other light wavelengths, mainly because the need of working in grazing incidence which enhances the distortion of the beam quality originated by errors. Basically, the x-ray optics must complain with i) extreme resistance to thermal load and absolute control of the induced deformations, ii) shape of the optical elements following very closely ideal mathematical surfaces (e.g. ellipsoids, paraboloids, etc), and iii) an extremely accurate surface finish. Moreover, the optics must be stable to vibrations and thermal drifts, and resistant against degradation and contamination along long periods of time. Last, but not least, we remind that the advancements in x-ray optics manufacture, driven by specific needs in instrumentation, must be accompanied by a complete set of simulations tools that access data from the metrology of the optical elements, to assess the performances of the optics and accurately predict the expected degradation in the quality of the beam.   
+
+It is crucial to
+ensure a delivery of an optimum beam at the experiment. For that, the beamline optics is used to monochromatize, focus (or collimate) and crop the beam. The optics must preserve the phase space of the source (or reduce when part of the beam is supressed), but never enlarge it by introducing random errors. Moreover, the beamline optics must preserve or improve the coherence fraction down to the sample. Both requirements are fulfilled if the good characteristics of the wavefronts at the source are preserved, i.e. not deteriorated, when transported to the sample trough the beamline optical elements. 
+
+The search of wavefront preserving optics started years ago, when applications exploiting beam coherence became more and more popular in 3$^\text{rd}$ generation light sources. 
+The techniques for super-polishing windows (beryllium, diamond) were improved, surface finish in mirrors and gratings improved dramatically (\todo{compare with Moore law}) and also progress in monochromators and beam
+position are examples of the advancements, however, further efforts are still needed
+towards the perfect wavefront propagation. 
+
+Surface finish is of paramount importance. For hard x-rays, preserving a wavefront with Strehl Ratio better than 0.8, ideally 0.97, imply surface finisih errors for reflective optics lower than 1 nm range \todo{check numbers}. In less-demanding beamlines, perhaps  for applications that do not need coherence, the importance to reduce finish errors below 0.1 microrad RMS (slope errors) and 1 nm (height errors) is also required to avoid artifacts and beam inhomogeneities typically observed when the beam is imaged out of focus. 
+
+\todo{paragraph corrective optics, adaptive optics, for imaging optics (AKB),}
+
+
+% Accurate calculation and quantitative evaluation of the parameters related to x-ray coherence, in such new storage rings, is of paramount importance for designing, building and exploiting the new beamlines. In this context an algorithm to calculate the cross-spectral density (CSD) of radiation emitted by modern x-ray undulators has been developed \cite{glass}.  The CSD quantifies two-point correlation properties of partially coherent statistically stationary fields \cite{Wolf1982,mandel_wolf}.  For Gaussian statistics, the CSD completely characterizes the properties of a beam since the Gaussian moment theorem implies all higher-order correlation functions either (i) vanish or (ii) are expressible in terms of the two-point correlation.  Two-point correlation functions are therefore a key input to model x-ray experiments in which x-ray CSDs are streamed through subsequent optical elements and samples, and finally through to the detected spectral density.  
+
+
+
+% https:\//\//www.slac.stanford.edu\//pubs\//slacpubs\//16250\//slac-pub-16451.pdf
+% https:\//\//xdb.lbl.gov\//Section2\//Sec_2-2.html
+% https:\//\//doi.org\//10.1107\//S1600577514015951
+% http://optdesign.narod.ru/book/smith_modern_optical_engineering.pdf
+
+% The Strehl ratio is the illumination at the center of the Airy disk for
+% an aberrated system expressed as a fraction of the corresponding illumination for a perfect system, as shown in Fig. 11.5. It is a good measure of image quality when the optical system is well corrected. A
+% Strehl ratio of 80 percent corresponds to a quarter-wave P-V OPD
+% (exactly for defocus, approximately for most aberrations.) For modest
+% amounts of OPD, the relationship between the Strehl ratio and the
+% RMS OPD is well approximated by
+% Strehl ratio 
+% where xxx is the RMS OPD in waves.
+% For various amounts of OPD, the several measures of image quality
+% are related as indicated in the following table. It assumes that the
+% OPD is due to defocusing. The P-V OPD is given in both Rayleigh limits (RL) and wavelengths. The Marechal criterion for image quality is
+% a Strehl ratio of 0.80, which corresponds to the Rayleigh limit for defocusing but is otherwise more general than the quarter-wave limit.
+
+
+
+
+
+\newpage
+\section{X-ray mirrors and the quest for sub-nm shape errors}
+
+\todo{DC: Intro 3 pages}
+
+The use of synchrotron radiation X-rays began in the 1960s. Compared to conventional laboratory-based X-ray sources, the intensity was, even back then, improved dramatically, and X-ray analysis entered in a new era. With this as an opportunity, optical devices to condense the X-rays were used and/or developed to use the sources more effectively. With the synchrotron light sources being characterized by small divergence and significantly longer distance it started to be possible to use mirror to creates small spot, or, at least, what was considered small at the time. As an example, in the 1980s, a several microradiants slope errors toroidal mirror was used as a cutting-edge condenser device. The mirror length was often more than 1m long since X-rays were emitted from bending magnets with relatively large divergence compared with those of present sources. Advances in the metal cutting technology and X-ray metrology, have led to the realization of the mirrors with acceptable performances. In the 1990s, the light sources progressed from bending magnets to undulators, and X-rays have acquired partial coherency that demands higher precision mirrors. To meet the requirement, high precision computer-controlled polishing and ion beam figuring method were developed, and better polished X-ray mirrors became available to improve the experimental results or, making new experiments possible. Just as an example, in the early nineties X-ray photoemission chamber spot become of the order of 10-20 $\mu$m \cite{Abrami1995} from the few-hundreds they were before. Techniques like angular resolved photoemission spectroscopy (ARPES) \todo{Kevan S D 1992 Angle Resolved Photoemission-Theory and Current Applications (Elsevier Science, Amsterdam)} become routinely feasible. Several other experiments become popular thanks to the improved flux density. Resonant Inelastic X-ray scattering is one example \cite{Isaacs1996} that started to gain traction toward the end of the 90ites. A well-known, but not written, rule in science is that, once you have good results, you want better results. And this led to requests for better optics, leading to the improvement of optical manufacturing and associated metrology, that led to better performance, making scientists greedy to have even better results (and new kind of experiments) and the cycle continue. Slowly, but constantly, the required and achieved precision in optical manufacturing improved, going from the, back then challenging sub-μrad spherical mirrors to the sub 0.5μrad or better aspherical optics around the turn of the century.
+But, it was with the advent of highly collimated machines (Spring-8, APS, ESRF) and X-ray Free Electron Lasers \todo{Emma, P. et al. First lasing and operation of an angstrom-wavelength free-electron laser, Nat. Photon. 4, 641–647 (2010), Abela, R., Aghababyan, A., Altarelli, M., et al., XFEL: The European X-Ray Free-Electron Laser - Technical Design Report, DESY report 06-097 (2006); %https://doi.org/10.3204/DESY\_06-097, 
+Ishikawa, T., Aoyagi, H., Asaka, T. et al. A compact X-ray free-electron laser emitting in the sub-angström region. Nature Photon 6, 540–544 (2012) 
+%doi:10.1038/nphoton.2012.141, 
+C. J. Milne, T. Schietinger, M. Aiba et al., SwissFEL: The Swiss X-ray Free Electron Laser, Appl. Sci. 2017, 7(7), 720;
+%https://doi.org/10.3390/app7070720
+} 
+that the mirrors, and the optics in general, made really a quantum leap with sub 100 nrad slope errors and 1-2 nm shape errors desired. It was almost unthinkable to produce and being able to use, such kind of mirror in the early 2000s. But, thanks to the pioneering work made at the Osaka University, the possibility became concrete. And this is when the quest for sub-nm optical shape accuracy started.
+
+
+\subsection{Precision mirror fabrication and metrology development at the Osaka University \inred{KY $\rightarrow$ DC 4 pages}}
+
+In the 2000s, high resolution elastic emission machining (EEM) method was developed at the Osaka University. The deterministic polishing process, based on EEM, was proven to be able to provide shape correction from mid spatial wavelength range to the full length of mirror with nanometric precision. Mirrors with diffraction-limit performance in the X-ray became a reality. 
+But, high precision polishing machine was useless without control. Major advances in metrology, in response to the demand for higher precision X-ray mirrors was also developed over years. Conventionally, CMM (Coordination measurement machine) was initially used for mirror measurement. From the end of 1990s to 2010s, due to the demand for higher accuracy in X-ray mirrors, the LTP (Long trace profiler) \todo{P. Z. Takacs, S. N. Qian, Design of a long trace surface profiler, Proc. SPIE, 749 (1987) 59-64} and later the NOM \cite{Siewert2004} were developed and improved to reach few nm PV accuracy. The spatial resolution was limited to about 1mm for the LTP and few mm for the NOM. The challenge, to reach sub-nm optics, was to have fast and reliable metrology system, able to provide feedback, in short time, to the polishing machine. Optical interferometer-based measurement satisfies those requirements. On this basis, micro stitching interferometry (MSI) and Relative angle determinable stitching interferometry (RADSI) have been developed and directly linked to the EEM for sub-nm mirror production.
+An important problem is to measure surfaces having large deviations from a plane figure. The RADSI, based on a large aperture interferometer, can measure the relative angle between neighboring apertures during stitching process simultaneously. The angle error is the largest error factor in stitching interferometers. In the conventional stitching, relative angle is determined by minimizing the superposition error at the common area of neighboring apertures. But, some ambiguities exist due to random and systematic errors. As mentioned later, RADSI has succeeded in greatly improving the measurement accuracy by precisely obtaining the relative angle between adjacent images. To achieve this precision, the MSI uses a microscopic interferometer whose data are used in conjunction with the RADSI data. Practically, after proper data handling, mutual consistency between RADSI and MSI profiles is optimized. At Osaka University, the deterministic process using RADSI/MSI in conjunction with EEM has been fully developed and transferred to industry for commercial and practical uses.
+In more details, the principle and features of the EEM method are briefly described here. EEM is a precise surface creation method that uses nanoparticles that are chemically reactive with the surface under polishing. The nanoparticles are supplied to a predetermined position on the surface by a flow of ultrapure water, and atomic removals proceed through chemical bonds between the atoms on the surfaces of nanoparticle and work part (mirror). The fine particles are dispersed in ultrapure water and supplied to the surface under work by a nozzle flow. The high spatial resolution EEM has a footprint of a few hundreds of micrometers in diameter and can locally modify the mirror shape with spatial resolution of about 100μm. Figure ?? XX shows the shape correction during EEM process of an elliptical focusing mirror with a length of 100mm. The central depth of the mirror was about 20μm. The pre-processed surface has already a relatively small shape error, of about 20 to 30 nm PV. With EEM, it has been reduced to nearly 2nm PV, over the entire length of 100mm by three iterative correction steps. Figure ?? YY shows the atomic resolution STM (scanning tunneling microscope) image of an EEM processed Si (001) surface, which is a typical material for X-ray mirrors. The surface, after EEM, is just rinsed in pure water, transferred to the ultrahigh vacuum chamber, and observed with the STM without any heat treatment. FIG??(a) shows an image of 10nm square, showing that the atoms are arranged practically crystallographically perfect. It means that no damage has been introduced to the surface, even at the atomic scale level. FIG??(b) shows a 100nm square image from which one can see that about 95\% of the entire surface was comprised within 3 atomic layers. This correspond to an almost perfect mirror, providing high reflectivity and wavefront preservation in the X-ray regime.
+
+To validate the quality and assist in the realization of the mirrors produced by EEM, as mentioned earlier, the Relative angle determinable stitching interferometry (RADSI) was developed and used. In RADSI, the relative angle between neighboring sub-apertures is acquired at the same time during measurements. The schematic drawing of the instrument is shown in FIG??. 
+
+A high-quality plane mirror is placed parallel to the mirror under test. The two mirrors are measured by an Fizeau interferometer at the same time. The mirror under test is placed on the precision tilt stage A. The plane mirror is set on another tilt stage (B in figure XXXX). This second stage is mounted on the stage A. With this configuration, when the measured mirror has a curved shape and the stage A needs to be tilted to move the measurement aperture to the neighboring position, the plane mirror is also tilted by the same angle. 
+The tilting angle is precisely known by measuring the angular variation of the plane mirror, before and after tilting, with an accuracy of about 10 nrad. When the fringe density from the flat mirror increase to the extent that coma aberration becomes problematic, the plane mirror is tilted back by using the stage B. The tilt is aimed to realize the null fringe condition independently from the position of the inspected mirror. 
+
+The RADSI measurements leaves a slight ambiguity in the quadratic term component. This may affects the precise knowledge of the focus distance and create minimal astigmatism between the horizontal and vertical focusing in a KB system. Nonetheless, this can be compensated by slightly shifting the mirror position. Overall, the use of EEM in conjunction with RADSI and MSI, advanced the fabrication technology of precision X-ray mirrors to the new level. For the first time, X-ray diffraction-limit performance are achievable and obtained, as shown in the next section.
+
+
+
+\subsection{What has been possible to achieve with the new generation of X-ray mirrors \inred{KY $\rightarrow$ DC 4 pages}}
+
+In section 1, the needed quality of the mirror for diffraction limited imaging has been described. The very tough tolerance required were there expressed in terms of Strehl Ratio S, with the Marechal criterion stating that S needs to be larger than 0.8. An even more stringent requirement, if one wish to work out of focus, is to set the lower limit, for S, to 0.97. 
+From equations 1.2 and 1.3, one can calculate that the Marechal Criterion is satisfied for an RMS surface error dh defined by:
+\begin{equation}
+\label{eq:marechal}
+ 	\partial h < \frac{\lambda}{14 (2 \sin\theta )}  =  \frac{\lambda}{14 \sqrt{N}(2 \sin\theta)}   
+\end{equation}
+
+
+The second equation in \ref{eq:marechal} take into account the possible presence of multiple mirror (N) in the optical system.
+
+Similarly, one can estimated the needed quality of grazing incidence optics in term of P-V (peak to valley). From the Rayleigh's criterion, to achieve diffraction-limit performance, the wavefront error must be smaller than $\lambda/4$ and the P-V shape error $d_{PV}$ is expressed as:
+
+\begin{equation}
+\label{eq:marechal2}
+	d_{PV} < \frac{\lambda}{4 (2 \sin\theta)}.
+\end{equation}
+
+As an example, assuming an X-ray photon energy of 10 keV ($\lambda$=0.124 nm) and a grazing incidence angle of 4 mrad, the maximum tolerable P-V error on the surface dPV is $\approx$ 4 nm (or $\approx$ 1 nm RMS). A deterministic process based on EEM, RADSI, and MSI can meet the requirement, and X-ray focusing optics can operate with the diffraction-limited performance. Other polishing technique, and vendors, can, in principle, meet such requirements \cite{peverini2020}. But, EEM has surely been the pioneering method for achieving such accurate polishing. Thanks to this technique, unprecedent beam quality has been achieved. Some examples are reported here below. 
+
+\subsubsection{Total Reflection Mirror with diffraction-limited performances}
+
+Due to the progress of optical fabrication technologies as mentioned above, total reflection KB mirrors have already satisfied the Rayleigh’s criterion and have achieved nano-condensation with the spot sizes less than 50nm. FIG?? show a pioneering 25 nm focusing at 15keV obtained in 2007 \cite{mimura2007}. 
+The mirror length was 50 mm, with focal distance of 50 mm. The grazing incidence angle was 4.2 mrad. The realized NA was 0.003, meaning the focus size under the diffraction-limited operation at 15keV X-ray is about 25nm that was the same as that obtained experimentally. 
+
+In the XFEL (X-ray free electron laser) domain, 50nm focusing was obtained at SACLA (SPring-8 angstrom compact free electro laser) and published in 2014 \cite{Mimura2014-aa} to reach the impressive peak intensity density of 1020W/cm2. This optics contributed to explore the X-ray nonlinear optics and achieved world’s first observations of a saturable absorption in iron \cite{Mimura2014-dg} two photons absorption in Ge [??], and k shell lasing in Cu [??]. Due to the continuous improvements of RADSI, MSI and EEM, shape errors in the middle frequency range have also been eliminated, and speckles has been reduced to an acceptable level. Out of focus beam, with very minimal deviation from a perfect uniform profile, has also been obtained \todo{D. Cocco, M. Idir, D. Morton, L. Raimondi, M. Zangrando, Advances in X-ray Optics: from metrology characterization to wavefront sensing-based optimization of active optics Nuclear Inst. and Methods in Physics Research, A, NIMA-D-17-01311 (2018)}. This is particularly important for experiments working out of focus or needed variable spot sizes. 
+
+\subsubsection{Multilayer mirror for ultimate focus}
+
+In order to realize the ultimate focusing with less than 10nm in diameter in the Hard X-ray, it is necessary to increase the numerical aperture of the focusing optics. Since, to achieve a very small focal spot it is necessary to have shorter focal distance and, therefore, shorter mirrors, the only solution is to use increase the angle of incidence. In the total external reflection mirrors, the grazing angle of incidence is limited by the critical angle so that it is necessary to use not a single layer total reflection mirror but a multilayer mirror to enhance the X-ray reflectivity. 
+Moreover, larger angles of incidence and shorter focal distances also mean that the curvature of the mirror surface becomes very large. An high accurate control of the very curved mirror shape and of the multilayer deposition, make those mirror very challenging. 
+Nano focusing with the size of 7nm was achieved at SPring-8 in 2010 \cite{Mimura2010-wq}. 
+This was the world’s first mirror-based focusing to less than 10nm. As shown in the optical system in FIG??, an adaptive mirror, driven by piezoelectric actuators, was placed upstream as phase corrector. The phase error is recovered from the intensity profiles near the focus. Equation (\ref{eq:marechal2}) shows that the maximum tolerable shape error of the mirror surface becomes smaller and smaller with the increase of the grazing incidence angle. In the case of the 7nm focusing, at 20 keV and 7 mrad grazing incidence, the maximum acceptable shape error was as low as to 1nm PV. This could not be guaranteed off-line even using RADSI and MSI. To satisfy such a tough demand in the mirror shape, a compensation optics (phase corrector) was adopted. The adaptive mirror can compensate only mid and long spatial frequencies. Therefore, the higher spatial frequency needed to be polished to the accuracy required to satisfy the Rayleigh’s criterion ($<$ 1 nm P-V). this has been obtained by deterministic fabrication method of EEM.
+
+\subsubsection{Adaptively deformable mirror – zoom optics}
+
+The upgrading ring-based source can significantly improve the experimental throughput and capabilities. This leads to the demands of multiple analysis with different technique on precious samples within a limited experimental time. At XFEL facility, the number of experimental stations is small because of the direct use of the linear accelerator and the few undulators. It is, therefore, inconvenient to have different line with different techniques and different spot sizes. To solve these problems, an X-ray zoom condenser/optics is the ideal solution to work in focus but with variable spot sizes. A X-ray zoom system consists of 4 mirrors, two in horizontal and two in vertical, all of them with active shape control. Several diffraction-limited adaptive optical systems has been proposed and demonstrated. Among them a system designed and realized in 2016 \cite{Matsuyama2016-xx} is presented in FIG??. The upstream and downstream optics are arranged in a KB configuration. An intermediate focus, created by the first set of mirrors become the source for the second KB system. The upstream mirrors accept the full incident X-rays beam and transport the X-rays via the intermediate focus to the downstream mirrors. By controlling the shapes of the first two mirrors, the mid focus can be shifted along the optical axis preserving the direction. By changing the profile of the second KB system, the location and distance of the final focus is also maintained. In doing this, the NA of the second focusing system can be varied and, therefore, also the dimensions of the diffraction limited spot in the experimental chamber. 
+
+FIG?? shows beam profiles for various Numerical Apertures. This particular system can change the spot size by nearly 10 times. The mirrors are driven by piezoelectric actuators and have a bimorph structure. The number of piezoelectric actuators in longitudinal direction on the mirror was 18, meaning that the shape can be controlled with high polynomial orders. Nonetheless, also in this case, the higher spatial frequencies errors cannot be corrected by the piezoelectric actuators and must be precisely polished out by EEM, RADSI, and MSI. Another advanced mirror system is shown in FIG??. This mirror is an hybrid bender comprising a bimorph mirror and a mechanical bender \todo{Takumi Goto, Satoshi Matsuyama, Hiroki Hayashi, Hiroyuki Yamaguchi, Junki Sonoyama, Kazuteru Akiyama, Hiroki Nakamori, Yasuhisa Sano, Yoshiki Kohmura, Makina Yabashi, Tetsuya Ishikawa, and Kazuto Yamauchi, "Nearly diffraction-limited hard X-ray line focusing with hybrid adaptive X-ray mirror based on mechanical and piezo-driven deformation," Opt. Express 26, 17477-17486 (2018),??}. In this hybrid deformable mirror, the required range for piezoelectric actuators is significantly reduced thanks to the use of the mechanical bender. Demands of shape variable mirrors are likely to become higher and higher with the increase in performance of the new X-ray sources and associated request for more controlled experiments. 
+
+
+\subsubsection{Advanced KB mirrors}
+
+Although KB mirrors are widely used as focusing system at synchrotron radiation sources, their application has some limits.
+In fact, even state of the art plan elliptical mirrors, don’t satisfy the Abbe sine condition, e.g. being able to create ideal focuses (sharp images) even in the presence of large beam footprint on the optics or large beam divergence. This is due to the large coma aberration associated with the collection of off-axis light. This may limit their application as imaging optics. To overcome this problem, advanced KB (AKB ) mirrors has been introduced. They use two sets of 1-dimensional Wolter mirrors, composed by an elliptical and a hyperbolic mirror. This system was proposed and realized in 2018 [??] to partially satisfy the Abbe sine condition. The optical system of this AKB system is shown in FIG???(a). The elliptical and hyperbolic mirrors were monolithically hybridized on a single substrate. The image of a test pattern obtained is shown in  FIG???(b). I In this test it is clearly shown that a full-field imaging, with mirror-based optics, can reach a spatial resolution better than 50nm. The ultimate resolution is defined by the NA on the sample side. The achromatic nature of total reflection mirrors can realize spectroscopic imaging such as an imaging XAFS (X-ray Absorption Fine Structure) or being used for large angular collection Soft X-ray RIXS (Resonant Inelastic X-ray Scattering) experiments.
+
+Another advantage of the use of AKB, with respect to the conventional KBs, is the considerable relaxation of all the alignment tolerances. This leads to an easiness of mirror manipulation and to extremely stable operation. This is a big, and highly desirable, advantage especially in nanofocusing and ptychography applications. While Fresnel zone plates and Condensed X-ray Lenses can also satisfy the Abbe sine condition, total reflection mirrors have the significant advantage of higher transmittance and of being achromatic.
+
+
+\subsection{Arbitrary mirror profiles for advanced experiments and photon collection	\inred{DC $\rightarrow$ ?? 1 page}}
+
+% \subsection{10 years look head – how the next generation of mirrors will, or must, be and how they will impact the potential experiments ???}
+
+\section{\inred{Diffraction} elements: Gratings, Crystals, and lenses}
+
+\todo{INTRO DC $\rightarrow$ SdR 1 page}} 
+
+\subsection{Wavefront and time preservation; toward a transform limited monochromatic beam \inred{DC $\rightarrow$ SdR 2 pages}}
+
+\subsection{Ultimate resolution monochromator: Required precision an the role of the Strehl Ratio \inred{DC $\rightarrow$ ?? 3 pages}}
+
+\subsection{The manufacturing limits and how they may be overcome\inred{DC $\rightarrow$ ?? 2 pages}}
+
+% \subsection{Monochromators optimization: the quest for stability and for high resolution ??? $\rightarrow$ DC}
+
+% \subsection{10 years look head – what the next generation of gratings need to provide to the user community ??? $\rightarrow$ DC $\rightarrow$ \inred{SdR}}
+
+\subsection{Historic development of lenses, their use in beamlines. Single and compound systems. \inred{SdR $\rightarrow$ ?? 3 pages}}
+
+\todo{COPY/PASTED text in blue: must be refactored}\inblue{
+
+Refractive X-ray optics relates to the group of elements that use X-ray refraction for focusing light. It comprises compound lenses [\cite{Snigirev1996}], single lenses (including kinoform lenses
+% \footnote{Kinoform lenses are a way of thinning refractive optics, thus reducing absorption. The lens thickness is obtained by removing redundant material causing optical path differences of $2\pi$ rad or its integer multiples [\cite{Jordan1970,Ognev2005}]. Depending on the degree of coherence from the illumination, diffraction effects appear when kinoform lenses are operated outside designed energy or present figure errors.}
+[\cite{Snigireva2001,Snigireva2001a,David2004}]), prisms [\cite{Cederstrom2000, Jark2004}] and free-form optics for wavefront correction and beam-shaping [\cite{Seiboth2017, Zverev2017, Markus2018, Seiboth2019, Seiboth2020, Dhamgaye2020}]. Compound refractive lenses (CRLs) are the most common refractive optical element found in synchrotrons and FELs. The application of lenses to focus synchrotron light is new, dating from the mid-1990s, while the use of diffractive focusing optics dates to the early 1930s and reflective optics to the late 1940s. 
+
+Historically, X-ray lenses were long believed to be unfeasible because low refraction index leads to unpractical focal lengths and the transmission of X-rays through matter faces strong absorption. In one of the early works on focusing and imaging with X-ray optics, P. Kirkpatrick and A. Baez stated that: \textit{"about one hundred lens surfaces in series would be required to bring the focal length down to one hundred meters. This would produce a cumbersome and very weak lens system of poor transparency. These discouraging considerations incline us toward other methods"}
+% \footnote{Using $f=R/\delta$, where $f$ is the focal length and $R$ is the refractive surface radius (cf. Eq~\ref{eq:Focus_simple}). The estimation shows values for $R=1$cm, using beryllium lens at $\lambda=0.71$\r{A}, K$_{\alpha}$ line of molybdenum \cite{Kirkpatrick1948}.}
+[\cite{Kirkpatrick1948}]. On the following year, Kirkpatrick went on to say: \textit{"Although the X-ray lens is thus possible it has the disadvantages of high absorption and strong chromatic aberration, and so would probably be generally inferior to mirror systems"} [\cite{Kirkpatrick1949}]. 
+It was not before 1991 that X-ray lenses would be reconsidered: in a scientific correspondence to the journal Nature, a Japanese group headed by S. Suehiro proposed the use of such elements for the forthcoming third-generation light sources [\cite{Suehiro1991}]. Such idea was not met with enthusiasm by the X-ray optics community, who still considered such technologies to be impractical for focusing X-rays as it was made clear by A. Michette, who had written Nature a reply to Suehiro's communication. The text entitled \textit{"No X-ray lens"} criticises the idea of refractive optics for X-rays and lists the reasons why those were considered them unsuitable for focusing X-rays [\cite{Michette1991}]. In \textit{"Fresnel and refractive lenses for X-rays"} by B. X. Yang, written in 1992 and published in 1993, Yang revisited S. Suehiro's idea and proposed ways to overcome the strong absorption of such lenses by using a Fresnel lenses shape instead [\cite{Yang1993}], however, those were of complicated fabrication and were not given too much attention. 
+
+The birth of the X-ray refractive lens as known today can be traced back to 1994, when T. Tomie filed a patent for X-ray lenses in Japan [\cite{Tomie1994}] - patents were also filed in US and Germany on the following year. His concept for X-ray lenses was introduced to the scientific community as a poster on the \textit{XRM'96, Int. Conf. X-ray Microscopy and Spectroscopy}, held in W\"urzburg, Germany, in 1996. The concept was simple, but innovative: a series of drilled holes into a single substrate along a straight line. The proposed design increased mechanical robustness, overcame alignment issues, reduced absorption by placing the drilled holes close to each other and was relatively simple to be manufactured - although T. Tomie never went on to produce them [\cite{Tomie2010}]. Shortly after the presentation of the refractive lens to the scientific community at the XRM'96, the breakthrough came: A. Snigirev and other colleagues produced the first compound refractive lens and demonstrated its efficiency in focusing hard X-rays. It was only 100 years after the discovery of the X-rays that their focusing by refraction was experimentally demonstrated. This first experiment was performed at the European Synchrotron Research Facility (ESRF) in  Grenoble, France [\cite{Snigirev1996}]. The group used a very similar approach to the one proposed by Tomie. The early lenses had a cylindrical or spherical shape. This limited their wide-spread application. A significant advancement to refractive X-ray optics came in 1999, when parabolic lenses were first demonstrated by B. Lengeler and his group [\cite{Lengeler1999,Lengeler2001}]. Refractive optics have subsequently entered into widespread use in applications ranging from tabletop sources to large facilities [\cite{Snigirev2008}].
+
+=================
+
+After the first experimental demonstration of the feasibility of using lenses to focus synchrotron X-ray beams (\cite{Snigirev1996}), an exceptional development has been produced in the field. It concerns the material used (typically Be, Al, and C$^*$), the surface shaping methods (punched lenses \cite{XX}, lithographic techniques \cite{XX}), reducing of the surface errors (shape, waviness and roughness), and different techniques for piling lenses. Single lenses with a shape designed to minimize (e.g., parabolic \cite{XX}) or completely reduce optical aberrations (ellipses \cite{XX}, cartesian ovals \cite{XX}) can be used for micro- and nano-focusing \cite{XX} applications. A Compound Refractive Lense (CRL) is a pile of single lenses allowing shorting the focal length. There are typically used to focus or collimate the beam, but they can also perform as monochromators in combination with an slit that select a photon energy bandwidth exploiting the energy-dispersion (chromatic aberration) of the light refraction. A transfocator is a pile of CRLs with possibility of switching on and off the individual CRLs, thus providing an almost continuous variation of the focal distance. 
+
+A lens system for X-ray beamline applications is usually described by parameters related to the lens focal $F$ (typically the curvature $R$ and refraction index $n=1-\delta+i\beta$) which can be approximated by the equation
+\begin{equation}
+    \label{eq:F}
+    F=\frac{R}{2 N \delta},
+\end{equation}
+and the lens absorption, which depends on $\beta$ and is used to define a variety of parameters such as the effective aperture \cite{XX}, and gain \cite{XX}. For multiple lenses (CRLs or transfocators), the global focal distance is $F^{-1}=F_1^{-1}+F_2^{-1}+...$. 
+
+For synchrotron beamlines, we are interested in the position of the focal spot and the ``size" of the focal spot. If the source is placed at a distance $p$ from the lens, applying geometrical optics, the beam refracted by the lens has its waist at a distance $q$ given by the lens equation
+\begin{equation}
+    \label{eq:lens}
+    \frac{1}{f} = \frac{1}{p} + \frac{1}{q},
+\end{equation}
+therefore $q=F p / (p-f)$. The system has a magnification $M=q/p$, so for a source of size $s$ the image at the waist has a lateral dimension of $Ms$. 
+
+This last result, which is well known by beamline designers, operators and users, is valid using incoherent beams, or coherent beams with large numerical aperture (NA). In the case of coherent beams with reduced numerical apertures, 
+}
+
+\subsection{Crystals as X-ray beamline monochromators but not only: noninvasive diagnostic, photon analyzers and enabler of self-seeding for FELs. \inred{SdR $\rightarrow$ ??? 2 pages}}
+
+\todo{COPY/PASTED text in blue: must be refactored}\inblue{
+The use of curved crystals to diffract and focus x-rays was a natural extension of the principles used in mirror and grating technology for radiation of longer wavelength. Some fundamental concepts exported to crystal optics, like the Rowland circle, date back to the XIX century \cite{rowland1882}.
+
+The fundamental setups using bent crystals to focus X-rays were proposed in the early 1930’s. Some systems use meridional focusing (in the diffraction plane), like i) Johann spectrometer \cite{Johann1931}, that uses a cylindrically bent crystal,  ii) Johansson spectrometer \cite{Johansson1933} that uses a ground and cylindrically bent crystal and iii) the Cauchois spectrometer \cite{cauchois1933} in transmission (Laue) geometry. The von Hamos spectrometer \cite{V.Hamos1933} applies sagittal focusing in the plane perpendicular to the diffraction plane.
+
+With the advent of synchrotron radiation, the concepts of ``geometrical focusing" were applied to design instruments such as polychromators for energy-dispersive extended x-ray absorption fine structure (EXAFS) \cite{Tolentino:ms0206}, monochromators with sagittal focusing for bending magnet beamlines \cite{Sparks1980}, or several types of crystal analyzers, adopted, in particular, at inelastic x-ray scattering beamlines. Bent crystals in transmission or Laue geometry are often employed in beamlines operating at high photon energies. The crystal curvature is used for focusing or collimating the beam in the meridional \cite{Suortti1988,SuorttiShulze} or sagittal \cite{Zhong2001} planes, or just to enlarge the energy bandwidth and improve the luminosity. The crystal bandwidth was optimized and aberrations reduced thanks to the good characteristics of synchrotron beams, in particular the high collimation and small source size. Crystal monochromators operating in beamlines work off-Rowland condition, whereas crystal analysers for applications such as inelastic scattering studies apply the Rowland setting.
+}
+
+
+% \section{X-ray lenses and other elements}
+
+
+
+
+\section{X-ray optical simulation – behind ray tracing and beamline design \inred{LR $\rightarrow$ SdR 5 pages}}
+
+\todo{LR: Reorganise this section}
+
+\subsection{OASYS – a multipurpose platform in continuous evolution \inred{LR $\rightarrow$ SdR ? pages}}
+
+\subsection{Grating performance from the point of view of wave optics \inred{LR $\rightarrow$ SdR ? pages}}
+
+\subsection{Tools for beamline design. Selection of suitable methods. \inred{LR $\rightarrow$ SdR ? pages}}
+
+\subsection{S2E simulations (from the source to the experiment) \inred{LR $\rightarrow$ SdR ? pages}}
+
+\subsection{Beamline optimization - toward machine learning \inred{LR $\rightarrow$ SdR ? pages}}
+
+\section{Everything you don’t want to know about but you should really care }
+
+\todo{DC: INTRO 2 pages (this include optics mounting and vibrations)}
+
+% \subsection{Beam stability and noninvasive diagnostic for close loop optimization KY $\rightarrow$ DC}
+
+\subsection{Thermal deformation and advanced scheme for diffraction limited optics, from adaptive cooling to cryogenic mirrors \todo{GC $\rightarrow$ DC 4 pages}}
+
+% \subsection{Optics mounting and vibrations handling GC $\rightarrow$ ??? }
+
+\subsection{Surface contamination and optical cleaning \inred{DC $\rightarrow$ ?? 2 pages}}
+	 
+
+\section{Summary and conclusions}
+
+\todo{DC $\rightarrow$ ALL 1 page.
+This will include:
+\begin{enumerate}
+    \item 10 years lookahead
+    \item Bean stability and non invasive diagnostics
+    \item Beamline optimization - towards machine learning
+\end{enumerate}
+}
+
+
+
+% \section{Sample Section Title}
+% \label{sec:sample1}
+
+% %% For citations use: 
+% %%       \citet{<label>} ==> Jones et al. (2015)
+% %%       \citep{<label>} ==> (Jones et al., 2015)
+
+% Lorem ipsum dolor sit amet, consectetur adipiscing \citep{Fabioetal2013} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud \citet{Blondeletal2008} exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit \citep{Blondeletal2008,FabricioLiang2013} anim id est laborum.
+
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum see appendix~\ref{sec:sample:appendix}.
+
+% %% The Appendices part is started with the command \appendix;
+% %% appendix sections are then done as normal sections
+% \appendix
+
+% \section{Sample Appendix Section}
+% \label{sec:sample:appendix}
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor section \ref{sec:sample1} incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+%% If you have bibdatabase file and want bibtex to generate the
+%% bibitems, please use
+%%
+\bibliographystyle{elsarticle-harv} 
+\bibliography{cas-refs}
+
+%% else use the following coding to input the bibitems directly in the
+%% TeX file.
+
+% \begin{thebibliography}{00}
+
+% %% \bibitem[Author(year)]{label}
+% %% Text of bibliographic item
+
+% \bibitem[ ()]{}
+
+% \end{thebibliography}
+\end{document}
+
+\endinput
+%%
+%% End of file `elsarticle-template-harv.tex'.
